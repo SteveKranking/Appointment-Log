@@ -17,7 +17,27 @@
 
 	<body>
 
-		<div class="container">
+
+		<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+		<script> 
+			
+				$(document).ready(function() {
+			$("#toggle").click(function() {
+				$("#toggleTo").toggle()
+			});
+				
+			});
+
+		</script>
+
+		<nav class="navbar navbar-expand-lg navbar-custom bg-custom">
+			<img class="navbar-brand" id="logo" src="https://upload.wikimedia.org/wikipedia/commons/5/5c/AT%26T-logo_2016.png" />
+		</nav>
+		
+
+
+		<div class="container spacing">
 			<div class="row">
 				<div class="col-md-12">
 					<h1> Schedule an Appointment! </h1>
@@ -25,9 +45,21 @@
 			</div>
 		</div>
 
-		<button type="submit" value="Schedule New Appointment"> </button>
+		<div class="container spacing">
+			<div class="row">
+				<div class="col-md-12">
+					<button id ="toggle" type="submit" value="Schedule New Appointment"> Schedule New Appointment! </button>
+				</div>
+			</div>
+		</div>
 
-		<div class="container">
+		<!-- <div class="experiments"> 
+				<h1> .toggle </h1>
+				<button id="toggle" type="button"> Click Me! </button>
+				<p id="toggleTo"> You'll regret that!! </p>
+			</div> -->
+
+		<div class="container spacing" id="toggleTo">
 			<div class="row">
 				<div class="col-md-12">
 
@@ -57,8 +89,8 @@
 								<option value="5:00">5:00</option>
 						</form:select>
 			
-						<form:label path="desc"> Reason </form:label>
-						<form:input type="text" path="desc" />
+						<form:label path="description"> Reason </form:label>
+						<form:input type="text" path="description" />
 					
 						<input class="btn btn-primary" type="submit" value="Submit" />
 			
@@ -68,7 +100,7 @@
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="container spacing">
 			<div class="row">
 				<div class="col-md-12">
 
@@ -85,7 +117,7 @@
 									<tr>
 										<td> ${thisAppointment.date} </td>
 										<td> ${thisAppointment.time} </td>
-										<td> ${thisAppointment.desc} </td>
+										<td> ${thisAppointment.description} </td>
 									</tr>
 								</c:forEach>
 							</tbody>

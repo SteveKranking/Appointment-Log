@@ -26,7 +26,7 @@ public class Appointment{
 	@GeneratedValue
 	private long id; 
 
-	private String desc;
+	private String description;
 	private String time;
 	private String date;
 	
@@ -69,11 +69,11 @@ public class Appointment{
 		this.updatedAt = new Date();
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getTime() {

@@ -39,7 +39,7 @@ public class Router{
 	}
 
 	@RequestMapping("index")
-	public String index(){
+	public String index(@ModelAttribute("appointment") Appointment appointment, Model model){
 
 		List<Appointment> allAppointments = (List<Appointment>) _ar.getAllAppointments();
 
@@ -47,7 +47,10 @@ public class Router{
 		
 		for (Appointment iAppointment : allAppointments) {
 			appointmentLoop.add(iAppointment);
+			System.out.println(iAppointment);
 		}
+
+		model.addAttribute("appointmentLoop", appointmentLoop);
 
 		return "index";
 	}
@@ -59,12 +62,11 @@ public class Router{
 	}	
 
 	@PostMapping("/newAppointment")
-	public String createAppointment(@ModelAttribute("appointment") Appointment appointment, String date, String time, String desc,BindingResult res) {
+	public String createAppointment(@ModelAttribute("appointment") Appointment appointment, String date, String time, String description, BindingResult res) {
 		
-		_as.create(appointment, date, time, desc);
+		_as.create(appointment, date, time, description);
 
 		return "redirect:/index";
 	}
-	
 	
 }
