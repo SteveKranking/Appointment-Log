@@ -28,9 +28,8 @@ public class Appointment{
 
 	private String desc;
 	private String time;
-	private Date date;
-	private List<Appointment> appointments;
-
+	private String date;
+	
 	// Member variables and annotations go here.
 	
 	@DateTimeFormat(pattern="MM:dd:yyyy HH:mm:ss")
@@ -84,18 +83,11 @@ public class Appointment{
 		this.time = time;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
-	}
-
-	public List<Appointment> getAppointments() {
-		return appointments;
-	}
-	public void setAppointments(List<Appointment> appointments) {
-		this.appointments = appointments;
 	}
 
 }
