@@ -35,12 +35,10 @@
 			<img class="navbar-brand" id="logo" src="https://upload.wikimedia.org/wikipedia/commons/5/5c/AT%26T-logo_2016.png" />
 		</nav>
 		
-
-
 		<div class="container spacing">
 			<div class="row">
 				<div class="col-md-12">
-					<h1> Schedule an Appointment! </h1>
+					<h1> Appointments </h1>
 				</div>
 			</div>
 		</div>
@@ -48,7 +46,7 @@
 		<div class="container spacing">
 			<div class="row">
 				<div class="col-md-12">
-					<button id ="toggle" type="submit" value="Schedule New Appointment"> Schedule New Appointment! </button>
+					<button class="btn btn-primary" id ="toggle" type="submit" value="Schedule New Appointment"> Schedule New Appointment! </button>
 				</div>
 			</div>
 		</div>
@@ -59,43 +57,55 @@
 				<p id="toggleTo"> You'll regret that!! </p>
 			</div> -->
 
-		<div class="container spacing" id="toggleTo">
+		<c:if test="newAppointment === true">
+			<div class="container spacing" id="toggleTo">
+				<div class="row">
+					<div class="col-md-12">
+
+						<form:form method="POST" action="/newAppointment" modelAttribute="appointment">
+
+							<form:label path="date"> Date </form:label>
+							<form:input type="date" path="date" />
+				
+							<form:label path="time"> Time </form:label>
+							<form:select path="time">
+									<option value="9:00">9:00</option>
+									<option value="9:30">9:30</option>
+									<option value="10:00">10:00</option>
+									<option value="10:30">10:30</option>
+									<option value="11:00">11:00</option>
+									<option value="11:30">11:30</option>
+									<option value="12:00">12:00</option>
+									<option value="12:30">12:30</option>
+									<option value="1:00">1:00</option>
+									<option value="1:30">1:30</option>
+									<option value="2:00">2:00</option>
+									<option value="2:30">2:30</option>
+									<option value="3:00">3:00</option>
+									<option value="3:30">3:30</option>
+									<option value="4:00">4:00</option>
+									<option value="4:30">4:30</option>
+									<option value="5:00">5:00</option>
+							</form:select>
+				
+							<form:label path="description"> Reason </form:label>
+							<form:input type="text" path="description" />
+						
+							<input class="btn btn-primary" type="submit" value="Submit" />
+				
+						</form:form>
+
+					</div>
+				</div>
+			</div>
+		</c:if>
+
+		<div class="container spacing">
 			<div class="row">
 				<div class="col-md-12">
-
-					<form:form method="POST" action="/newAppointment" modelAttribute="appointment">
-
-						<form:label path="date"> Date </form:label>
-						<form:input type="date" path="date" />
-			
-						<form:label path="time"> Time </form:label>
-						<form:select path="time">
-								<option value="9:00">9:00</option>
-								<option value="9:30">9:30</option>
-								<option value="10:00">10:00</option>
-								<option value="10:30">10:30</option>
-								<option value="11:00">11:00</option>
-								<option value="11:30">11:30</option>
-								<option value="12:00">12:00</option>
-								<option value="12:30">12:30</option>
-								<option value="1:00">1:00</option>
-								<option value="1:30">1:30</option>
-								<option value="2:00">2:00</option>
-								<option value="2:30">2:30</option>
-								<option value="3:00">3:00</option>
-								<option value="3:30">3:30</option>
-								<option value="4:00">4:00</option>
-								<option value="4:30">4:30</option>
-								<option value="5:00">5:00</option>
-						</form:select>
-			
-						<form:label path="description"> Reason </form:label>
-						<form:input type="text" path="description" />
-					
-						<input class="btn btn-primary" type="submit" value="Submit" />
-			
-					</form:form>
-
+					<form method="POST" action="/search">
+						<label>Search for Appointments: <input name="search"/></label> <input class="btn btn-secondary" type="submit" value="search" />
+					</form>
 				</div>
 			</div>
 		</div>
@@ -120,13 +130,21 @@
 										<td> ${thisAppointment.description} </td>
 									</tr>
 								</c:forEach>
+							
+							<c:forEach items="${results}" var="appointment">
+								<tr>
+									<td>${ appointment.date }</td>
+									<td>${ appointment.time }</td>
+									<td>${ appointment.descripiton }</td>
+								</tr>
+							</c:forEach>
+
 							</tbody>
 						</table>
 
 				</div>
 			</div>
 		</div>
-		
 
 	</body>
 </html>

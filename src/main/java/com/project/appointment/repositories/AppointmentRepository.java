@@ -14,4 +14,6 @@ public interface AppointmentRepository extends CrudRepository <Appointment,Long>
     @Query(value="SELECT * FROM appointment", nativeQuery=true)
     List<Appointment> getAllAppointments();
     
+    List<Appointment> findByDescriptionContaining(String search);
+
 }

@@ -30,6 +30,10 @@ public class AppointmentService {
 		_ar.save(appointment);
 		
 	}
+
+	public List<Appointment> searchByDescription(String search) {
+		return _ar.findByDescriptionContaining(search);
+	}
 	
 	// Crud methods to act on services go here.
 }

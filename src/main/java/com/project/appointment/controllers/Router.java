@@ -39,8 +39,10 @@ public class Router{
 	}
 
 	@RequestMapping("index")
-	public String index(@ModelAttribute("appointment") Appointment appointment, Model model){
+	public String index(@ModelAttribute("appointment") Appointment appointment, Model model, Boolean newAppointment){
 
+		newAppointment = false;
+		
 		List<Appointment> allAppointments = (List<Appointment>) _ar.getAllAppointments();
 
 		List<Appointment> appointmentLoop = new ArrayList<Appointment>();
@@ -68,5 +70,22 @@ public class Router{
 
 		return "redirect:/index";
 	}
+
+	@PostMapping("/search")
+	public String searchByArtist(Model model, @RequestParam("search") String term) {
+		model.addAttribute("term", term);
+		model.addAttribute("results", _as.searchByDescription(term));
+		return "index";
+	}
+
+	@PostMapping("/toggle")
+	public String toggleAppointment(Model model, Boolean newAppointment) {
+		model.addAttribute("term", newAppointment);
+
+		newAppointment = !newAppointment;
+
+		return "index";
+	}
+
 	
 }
