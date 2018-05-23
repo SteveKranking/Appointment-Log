@@ -22,11 +22,20 @@
 
 		<script> 
 			
-				$(document).ready(function() {
+			$(document).ready(function() {
+
+			$('#toggleTo').hide();
+				
 			$("#toggle").click(function() {
 				$("#toggleTo").toggle()
 			});
-				
+
+			$(".toggleAgain").toggle(function() {
+				$(this).text("Schedule an Appointment");
+			}, function() {
+				$(this).text("Cancel");
+			});
+
 			});
 
 		</script>
@@ -46,18 +55,11 @@
 		<div class="container spacing">
 			<div class="row">
 				<div class="col-md-12">
-					<button class="btn btn-primary" id ="toggle" type="submit" value="Schedule New Appointment"> Schedule New Appointment! </button>
+					<button class="btn btn-primary buttonText" path="/toggleAppointment" id="toggle" class"toggleAgain" type="submit"> Schedule an Appointment </button>
 				</div>
 			</div>
 		</div>
 
-		<!-- <div class="experiments"> 
-				<h1> .toggle </h1>
-				<button id="toggle" type="button"> Click Me! </button>
-				<p id="toggleTo"> You'll regret that!! </p>
-			</div> -->
-
-		<c:if test="newAppointment === true">
 			<div class="container spacing" id="toggleTo">
 				<div class="row">
 					<div class="col-md-12">
@@ -91,14 +93,13 @@
 							<form:label path="description"> Reason </form:label>
 							<form:input type="text" path="description" />
 						
-							<input class="btn btn-primary" type="submit" value="Submit" />
+							<input class="btn btn-primary" type="submit" value="Add" />
 				
 						</form:form>
 
 					</div>
 				</div>
 			</div>
-		</c:if>
 
 		<div class="container spacing">
 			<div class="row">
@@ -131,13 +132,13 @@
 									</tr>
 								</c:forEach>
 							
-							<c:forEach items="${results}" var="appointment">
+							 <!-- <c:forEach items="${results}" var="appointment">
 								<tr>
 									<td>${ appointment.date }</td>
 									<td>${ appointment.time }</td>
 									<td>${ appointment.descripiton }</td>
 								</tr>
-							</c:forEach>
+							</c:forEach>  -->
 
 							</tbody>
 						</table>

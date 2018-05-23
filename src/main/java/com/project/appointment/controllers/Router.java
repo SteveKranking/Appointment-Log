@@ -42,7 +42,7 @@ public class Router{
 	public String index(@ModelAttribute("appointment") Appointment appointment, Model model, Boolean newAppointment){
 
 		newAppointment = false;
-		
+
 		List<Appointment> allAppointments = (List<Appointment>) _ar.getAllAppointments();
 
 		List<Appointment> appointmentLoop = new ArrayList<Appointment>();
@@ -78,9 +78,9 @@ public class Router{
 		return "index";
 	}
 
-	@PostMapping("/toggle")
+	@RequestMapping("/toggleAppointment")
 	public String toggleAppointment(Model model, Boolean newAppointment) {
-		model.addAttribute("term", newAppointment);
+		model.addAttribute("newAppointment", newAppointment);
 
 		newAppointment = !newAppointment;
 
