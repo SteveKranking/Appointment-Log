@@ -68,10 +68,8 @@ public class Appointment{
 	// Setters and Getters go here
 	
 	public Appointment(){
-		super();
 		this.createdAt = new Date();
 		this.updatedAt = new Date();
-		this.date = new Date();
 	}
 
 	public String getDescription() {

@@ -68,8 +68,8 @@
 
 						<form:form method="POST" action="/newAppointment" modelAttribute="appointment">
 
-							<form:label path="date"> Date </form:label>
-							<form:input type="date" path="date" />
+							<form:label path="sDate"> Date </form:label>
+							<form:input type="date" path="sDate" />
 				
 							<form:label path="time"> Time </form:label>
 							<form:select path="time">
@@ -128,19 +128,19 @@
 							<tbody>
 								<c:forEach items="${appointmentLoop}" var="thisAppointment">
 									<tr>
-										<td> ${thisAppointment.date} </td>
+										<td> ${thisAppointment.sDate} </td>
 										<td> ${thisAppointment.time} </td>
 										<td> ${thisAppointment.description} </td>
 									</tr>
 								</c:forEach>
 							
-							 <!-- <c:forEach items="${results}" var="appointment">
+							 <c:forEach items="${results}" var="searchedAppointment">
 								<tr>
-									<td>${ appointment.date }</td>
-									<td>${ appointment.time }</td>
-									<td>${ appointment.descripiton }</td>
+									<td>${ searchedAppointment.sDate }</td>
+									<td>${ searchedAppointment.time }</td>
+									<td>${ searchedAppointment.descripiton }</td>
 								</tr>
-							</c:forEach>  -->
+							</c:forEach> 
 
 							</tbody>
 						</table>
