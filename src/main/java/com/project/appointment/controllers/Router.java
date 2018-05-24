@@ -64,9 +64,18 @@ public class Router{
 	}	
 
 	@PostMapping("/newAppointment")
-	public String createAppointment(@ModelAttribute("appointment") Appointment appointment, String date, String time, String description, BindingResult res) {
-		
-		_as.create(appointment, date, time, description);
+	public String createAppointment(@ModelAttribute("appointment") Appointment appointment, String sDate, String time, String description, BindingResult res, Model model) {
+
+		List<Appointment> appointments =(List<Appointment>) _ar.findAll();
+		int numCopies = 0;
+
+		for (Appointment iAppointment : appointments) {
+			if(iAppointment.getTime() == time && iAppointment.getsDate() == sDate) {
+				numCopies++;
+			}
+		}
+
+		_as.create(appointment, sDate, time, description);
 
 		return "redirect:/index";
 	}

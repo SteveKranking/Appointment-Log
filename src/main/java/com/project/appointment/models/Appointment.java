@@ -26,9 +26,12 @@ public class Appointment{
 	@GeneratedValue
 	private long id; 
 
+	@Size(min = 7, max = 25, message= "Reason must be between 7 and 25 characters")
 	private String description;
 	private String time;
-	private String date;
+	private String sDate;
+
+	private Date date;
 	
 	// Member variables and annotations go here.
 	
@@ -65,8 +68,10 @@ public class Appointment{
 	// Setters and Getters go here
 	
 	public Appointment(){
+		super();
 		this.createdAt = new Date();
 		this.updatedAt = new Date();
+		this.date = new Date();
 	}
 
 	public String getDescription() {
@@ -83,10 +88,22 @@ public class Appointment{
 		this.time = time;
 	}
 
-	public String getDate() {
+	public String getsDate() {
+		return sDate;
+	}
+	public void setsDate(String sDate) {
+		this.sDate = sDate;
+	}
+	/**
+	 * @return the date
+	 */
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

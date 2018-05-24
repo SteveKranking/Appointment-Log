@@ -22,9 +22,9 @@ public class AppointmentService {
 
 	}
 
-	public void create(Appointment appointment, String date, String time, String description){
+	public void create(Appointment appointment, String sDate, String time, String description){
 		
-		appointment.setDate(date);
+		appointment.setsDate(sDate);
 		appointment.setTime(time);
 		appointment.setDescription(description);
 		_ar.save(appointment);

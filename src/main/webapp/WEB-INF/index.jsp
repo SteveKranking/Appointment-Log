@@ -26,14 +26,16 @@
 
 			$('#toggleTo').hide();
 				
-			$("#toggle").click(function() {
+			$("#toggle").click(function() { 
 				$("#toggleTo").toggle()
 			});
-
-			$(".toggleAgain").toggle(function() {
-				$(this).text("Schedule an Appointment");
-			}, function() {
-				$(this).text("Cancel");
+			
+			$("#toggleText").click(function() { 
+				if ($(this).text() == "Schedule an Appointment") { 
+					$(this).text("Cancel"); 
+				} else { 
+					$(this).text("Schedule an Appointment"); 
+				}; 
 			});
 
 			});
@@ -55,7 +57,7 @@
 		<div class="container spacing">
 			<div class="row">
 				<div class="col-md-12">
-					<button class="btn btn-primary buttonText" path="/toggleAppointment" id="toggle" class"toggleAgain" type="submit"> Schedule an Appointment </button>
+					<button class="btn btn-primary buttonText" path="/toggleAppointment" id="toggle" class"toggleAgain" type="submit"> <span id="toggleText">Schedule an Appointment</span> </button>
 				</div>
 			</div>
 		</div>
