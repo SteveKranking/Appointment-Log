@@ -16,7 +16,5 @@ public interface AppointmentRepository extends CrudRepository <Appointment,Long>
     
     List<Appointment> findByDescriptionContaining(String search);
 
-    @Query(value="SELECT * FROM appointment WHERE date = ?1 AND time = ?2", nativeQuery=true)
-    List<Appointment> getValidation(); 
 
 }

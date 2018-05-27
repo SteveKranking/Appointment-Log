@@ -54,6 +54,25 @@
 			</div>
 		</div>
 
+		<c:if test="${someErrors.equals(true)}">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<p>Date Cannot Be In The Past</p>
+
+							<!-- <form:form method="POST" modelAttribute="appointment">
+
+								<form:errors path="date">Date cannot be in the past</form:errors>
+								<form:errors path="time"></form:errors>
+								<form:errors path="description"></form:errors>
+
+							</form:form> -->
+
+					</div>
+				</div>
+			</div>
+		</c:if>
+
 		<div class="container spacing">
 			<div class="row">
 				<div class="col-md-12">
@@ -133,14 +152,7 @@
 										<td> ${thisAppointment.description} </td>
 									</tr>
 								</c:forEach>
-							
-							 <c:forEach items="${results}" var="searchedAppointment">
-								<tr>
-									<td>${ searchedAppointment.sDate }</td>
-									<td>${ searchedAppointment.time }</td>
-									<td>${ searchedAppointment.descripiton }</td>
-								</tr>
-							</c:forEach> 
+						
 
 							</tbody>
 						</table>
