@@ -146,15 +146,5 @@ public class Router{
 
 		return "redirect:/index";
 	}
-
-	// @RequestMapping("/toggleAppointment")
-	// public String toggleAppointment(Model model, Boolean newAppointment) {
-	// 	model.addAttribute("newAppointment", newAppointment);
-
-	// 	newAppointment = !newAppointment;
-
-	// 	return "index";
-	// }
-
 	
 }
